@@ -1,0 +1,31 @@
+<nav class="nav" style="width: 100vw;">
+    <a routerLink="/share/index" (click)="selectedTaskTag=null; getTasks()" [class.active]="!selectedTaskTag"> 推荐 </a>
+    <a routerLink="/share/index" [class.active]="selectedTaskTag==taskTag._id " *ngFor="let taskTag of taskTags" (click)="getTasks(taskTag._id)">{{taskTag.name}}</a>
+</nav>
+
+
+<div class="swiper-container">
+    <div class="swiper-wrapper">
+        <div class="swiper-slide" style="    width: 100vw;">
+            <a routerLink="/share/taskDetail" [queryParams]="{openid:user.openid,taskId:banner.task._id}" *ngFor="let banner of banners;let i = index;">
+                <img [src]="banner.task.imageUrl || banner.task.bannerImg" alt="" class=" fadeInRight" *ngIf="showingBanner==i"></a>
+        </div>
+    </div>
+    <div class="swiper-pagination" *ngFor="let banner of banners;let i = index;"></div>
+</div>
+<div class="animated fadeInRight">
+    <div class="center">
+
+        <a class="center-box" routerLink='/share/taskDetail' [queryParams]="{parent:user._id,taskId:task._id}" *ngFor="let task of tasks">
+
+
+            <div class="center-box-cr">
+                <img [src]="task.imageUrl" alt="">
+                <p>{{task.title}}</p>
+                <span class="time">{{task.createDt | date:'yyyy-MM-dd'}}</span>
+                <span class="cost"><i class="iconfont">&#xe60e;</i>{{task.shareMoney}}元</span>
+                <span class="click"><i class="iconfont">&#xe662;</i>{{task.clickNum}}</span>
+            </div>
+        </a>
+    </div>
+</div>

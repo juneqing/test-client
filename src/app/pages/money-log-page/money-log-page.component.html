@@ -1,0 +1,33 @@
+<div class="animated fadeInRight bgac">
+    <div class="icon">
+        <div class="icon-box">
+            <div class="iconImg">
+                <div class="iconImgs">
+                    <img [src]="user.headimgurl" alt="">
+                </div>
+            </div>
+            <p class="name">今日文章转发收益:<span>{{user.todayMoney|money}}</span></p>
+            <div class="id">账户余额:<span>{{user.totalMoney|money}}</span></div>
+        </div>
+    </div>
+    <div class="tixianye">
+        <div class="tixianye-box">
+            <p>24小时内收益详情</p>
+        </div>
+    </div>
+    <table class="biao1">
+        <tr>
+            <th>流水号</th>
+            <th>标题</th>
+            <th>收益</th>
+        </tr>
+
+        <tr *ngFor="let taskRecord of taskRecords">
+            <td>{{taskRecord.createDt | date:'yyyy-MM-dd HH:mm:ss'}}</td>
+            <td class="task-title" style="max-width: 5rem;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;">{{ taskRecord.task?.title || '任务已移除' }}</td>
+            <td>￥ <span *ngFor="let order of taskRecord.shareDetail"> <span *ngIf="order.user == user._id">{{order.money}}</span>
+                </span>
+            </td>
+        </tr>
+    </table>
+</div>

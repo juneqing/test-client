@@ -1,0 +1,32 @@
+<router-outlet></router-outlet>
+<div class="padding"></div>
+<div style='margin:0 auto;width:0px;height:0px;overflow:hidden;'>
+    <img src="/images/img1.jpg" width='0' height="0">
+</div>
+<footer class="footer">
+    <div class="footer-box">
+        <a routerLink="/share/index" (click)="path='index'">
+            <i class="iconfont" [class.active]="path=='index'">&#xe617;</i>
+            <span class=" " [class.active]="path=='index'">分享赚钱</span>
+        </a>
+    </div>
+    <div class="footer-box">
+        <a routerLink="/share/person-center" (click)="path='person-center'">
+            <i class="iconfont " [class.active]="path=='person-center'">&#xe619;</i>
+            <span class=" " [class.active]="path=='person-center'">个人中心</span>
+        </a>
+    </div>
+    <div class="footer-box">
+        <a routerLink="/share/shop-center" (click)="path='/share/shop-center'">
+            <i class="iconfont" [class.active]="path=='/share/shop-center'">&#xe699;</i>
+            <span [class.active]="path=='/share/shop-center'">广告主</span>
+        </a>
+    </div>
+
+    <div class="footer-box">
+        <a routerLink="/share/recruit-student" (click)="path='recruit-student'">
+            <i class="iconfont" [class.active]="path=='recruit-studentr'">&#xe6ce;</i>
+            <span class="" [class.active]="path=='recruit-studentr'">我要收徒</span>
+        </a>
+    </div>
+</footer>

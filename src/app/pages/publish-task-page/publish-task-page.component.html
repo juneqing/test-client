@@ -1,0 +1,46 @@
+<div class="animated fadeInRight bgac">
+    <div>
+        <div class="release-box">
+            <label for="">标题:</label>
+            <span>新颖有趣的标题更吸引人的眼球</span>
+            <input type="text" (change)="newTask.title=title.value" #title>
+        </div>
+        <div class="release-box">
+            <label for="">文章栏目:</label>
+            <ul class="taskTag-list">
+                <li [class.active]="selectedTaskTag==taskTag" (click)="selectedTaskTag=taskTag" *ngFor="let taskTag of taskTags">{{taskTag.name}}</li>
+            </ul>
+
+        </div>
+        <div class="release-box">
+            <label for="">预览图片</label>
+            <input type="file" (change)="previewImage(imageInput.files[0])" #imageInput>
+            <img [src]="newTask.imageUrl" style="max-width:100%;" *ngIf="newTask.imageUrl">
+            <input type="text" (change)="newTask.imageUrl=imageUrl.value" class="hide" #imageUrl>
+        </div>
+        <div class="release-box">
+            <label for="">总出价:</label>
+            <span>具有吸引力的价格能让更多人推广</span>
+            <input type="number" (change)="newTask.fee=fee.value" #fee>
+        </div>
+        <div class="release-box">
+            <label for="">单条出价:</label>
+            <span>具有吸引力的价格能让更多人推广</span>
+            <input type="number" (change)="newTask.shareMoney =shareMoney.value" #shareMoney>
+        </div>
+        <div class="release-box">
+            <label for="">推广地址:</label>
+            <span>你要推广什么就推广什么，记住是网址</span>
+            <input type="text" (change)="newTask.websiteUrl=websiteUrl.value" #websiteUrl>
+        </div>
+        <div class="release-box">
+            <label for="">正文:</label>
+            <textarea (change)="newTask.content=content.value" #content></textarea>
+        </div>
+        <div class="release-box vr">
+            <button (click)="requestPay()" class="cs">发布</button>
+            <!-- <button type="reset">重置</button> -->
+        </div>
+    </div>
+</div>
+<div class="padding"></div>

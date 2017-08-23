@@ -1,0 +1,34 @@
+<div id="cover" [style.display]="isCover?'block':'none'">
+    <img src="/actives/images/share.png" alt="遮罩层" class="img-responsive">
+</div>
+
+
+<div class="container-fluid">
+    <div class="header">
+        <h3>{{task.title}}</h3>
+        <h4>
+            <span>{{task.createDt | date:'yy-MM-dd HH:mm:ss'  }}</span>
+            <a href="https://mp.weixin.qq.com/s/TLsoZ-uwfhxTqyLG2RWpiA" target="_blank">狠享赚</a>
+        </h4>
+    </div>
+</div>
+<div id="taskTitle" class="hide">{{task.title}}</div>
+<div id="taskImage" class="hide">{{task.imageUrl}}</div>
+<div id="taskContent" class="hide">{{task.content}}</div>
+<div id="qrcode"></div>
+
+<!-- <h1 *ngIf="errorMsg" class="msg " style="font-size:1rem;color:yellow;"><img src="/assets/timg.gif" alt="" style="width:40px;"> </h1> -->
+<!-- <ul *ngIf="taskRecord " class="taskDetail pounce fadeOutUp"> -->
+<!-- <li *ngFor="let order of taskRecord.shareDetail" class="order"> <img src="/assets/timg.gif" alt="" style="width:40px;"> {{ order.user==user._id?'我获得了': order.user['nickname']+'获得了' }}￥{{order.money}}</li> -->
+<!-- </ul> -->
+
+
+
+
+
+
+<div style="position:relative;z-index:1;">
+    <iframe name="myFrame" [src]="task.websiteUrl" *ngIf="task.websiteUrl"></iframe>
+</div>
+
+<a href="http://kk.youqulexiang.com/app/index.php?i=6&c=entry&m=ewei_shopv2&do=mobile&r=diypage&id=32" target="_blank" style="margin-left:40px ;color:lightskyblue;">阅读全文</a>
